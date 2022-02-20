@@ -255,8 +255,7 @@ const drawCanvas = () => {
             soundAnalyser.setStreamSource(app.audio.captureStream());
             soundAnalyser.display("sinewave")
         } catch (e) {
-            soundAnalyser.setStreamSource(app.audio.mozCaptureStream());
-            soundAnalyser.display("sinewave")
+            console.log('works best in chrome')
         }
     }
           
