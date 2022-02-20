@@ -251,8 +251,13 @@ const drawCanvas = () => {
     let canvas = document.getElementById('canvas');
     const soundAnalyser = new SoundAnalyser(canvas);
     if (app.audio.src) {
-        soundAnalyser.setStreamSource(app.audio.captureStream());
-        soundAnalyser.display("sinewave")
+        try {
+            soundAnalyser.setStreamSource(app.audio.captureStream());
+            soundAnalyser.display("sinewave")
+        } catch (e) {
+            soundAnalyser.setStreamSource(app.audio.mozCaptureStream());
+            soundAnalyser.display("sinewave")
+        }
     }
           
 }
